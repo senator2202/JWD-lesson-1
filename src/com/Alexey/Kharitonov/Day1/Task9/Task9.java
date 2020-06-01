@@ -1,4 +1,4 @@
-package Epam.Alexey.Kharitonov.Task9;
+package com.Alexey.Kharitonov.Day1.Task9;
 
 import java.util.Scanner;
 
