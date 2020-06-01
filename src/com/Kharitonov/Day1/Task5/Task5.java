@@ -1,4 +1,4 @@
-package com.Alexey.Kharitonov.Day1.Task5;
+package com.Kharitonov.Day1.Task5;
 
 
 import java.util.ArrayList;

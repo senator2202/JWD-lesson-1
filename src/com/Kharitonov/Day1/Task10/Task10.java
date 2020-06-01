@@ -1,4 +1,4 @@
-package com.Alexey.Kharitonov.Day1.Task10;
+package com.Kharitonov.Day1.Task10;
 
 import java.util.Scanner;
 
