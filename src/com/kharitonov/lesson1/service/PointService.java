@@ -10,10 +10,10 @@ public class PointService {
      * from origin to point2*/
     public int defineClosestPoint(MyPoint point1, MyPoint point2) {
         PointValidator pointValidator = new PointValidator();
-        String message = "X coordinates of points must be between "
-                + PointValidator.XSTART + " and " + PointValidator.XEND + ".\n"
-                + "Y coordinate must be between "
-                + PointValidator.YSTART + " and " + PointValidator.YEND;
+        String message = "X coordinates of points must be in range "
+                + pointValidator.getXRange() + ".\n"
+                + "Y coordinates must be in range "
+                + pointValidator.getYRange();
         if (!pointValidator.validatePoint(point1) ||
                 !pointValidator.validatePoint(point2)) {
             throw new NumberFormatException(message);

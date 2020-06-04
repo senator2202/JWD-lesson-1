@@ -7,7 +7,7 @@ public class FunctionConsole {
     }
 
     public void printFunctionValues(String signature, double[][] msXAndValues) {
-        System.out.println("F(x) = "+signature);
+        System.out.println("F(x) = " + signature);
         for (int i = 0; i < msXAndValues[0].length; i++) {
             System.out.printf("%nF(%5.1f) = %5.2f",
                     msXAndValues[0][i],

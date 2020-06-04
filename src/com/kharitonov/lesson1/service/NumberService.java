@@ -8,6 +8,11 @@ public class NumberService {
 
     /*Method returns last digit of the square of the number*/
     public int getLastDigitOfSquare(int number) {
+        ValueValidator valueValidator = new ValueValidator();
+        if (!valueValidator.validateInRange(number)) {
+            throw new NumberFormatException("Number must be in range "
+                    + valueValidator.getRange());
+        }
         int digit = defineLastDigit(number);
         return defineLastDigit((int) Math.pow(digit, 2));
     }
@@ -21,6 +26,11 @@ public class NumberService {
     public boolean checkForTwoEven(int... numbers) {
         int count = 0;
         for (int i = 0; i < numbers.length; i++) {
+            ValueValidator valueValidator = new ValueValidator();
+            if (!valueValidator.validateInRange(numbers[i])) {
+                throw new NumberFormatException("All numbers must be " +
+                        "in range " + valueValidator.getRange());
+            }
             if (numbers[i] % 2 == 0) {
                 count++;
             }

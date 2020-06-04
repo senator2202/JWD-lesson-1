@@ -16,6 +16,14 @@ public class PointValidator {
     }
 
     public boolean validateX(double x) {
-        return (x>=XSTART && x<=XEND);
+        return (x >= XSTART && x <= XEND);
+    }
+
+    public String getXRange() {
+        return "[" + XSTART + ";" + XEND + "]";
+    }
+
+    public String getYRange() {
+        return "[" + YSTART + ";" + YEND + "]";
     }
 }

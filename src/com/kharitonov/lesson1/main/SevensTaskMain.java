@@ -6,8 +6,8 @@ import com.kharitonov.lesson1.service.PointService;
 
 public class SevensTaskMain {
     public static void main(String[] args) {
-        MyPoint point1 = new MyPoint(4, 5);
-        MyPoint point2 = new MyPoint(10, -4);
+        MyPoint point1 = new MyPoint(-4, 9);
+        MyPoint point2 = new MyPoint(17, 3);
         try {
             PointService pointService = new PointService();
             int result = pointService.defineClosestPoint(point1, point2);
