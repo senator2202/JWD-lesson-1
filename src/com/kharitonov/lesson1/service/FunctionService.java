@@ -31,10 +31,10 @@ public class FunctionService {
 
     public double[][] getFunctionValues(TangentFunction tg, double a,
                                         double b, double h) {
-        int size = (int) ((b - a) / h)+1;
+        int size = (int) ((b - a) / h) + 1;
         double[][] msXAndValues = new double[2][size];
-        int count=0;
-        for (double i = a; i < b; i+=h) {
+        int count = 0;
+        for (double i = a; i < b; i += h) {
             msXAndValues[0][count] = i;
             msXAndValues[1][count++] = getFunctionValue(tg, i);
         }

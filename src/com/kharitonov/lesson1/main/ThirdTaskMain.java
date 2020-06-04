@@ -15,8 +15,10 @@ public class ThirdTaskMain {
             ShapeConsole shapeConsole = new ShapeConsole();
             double side = shapeService.getSquareSide(area);
             MySquare describedSquare = new MySquare(side);
-            MyCircle myCircle = shapeService.getInscribedCircle(describedSquare);
-            MySquare inscribedSquare = shapeService.getInscribedSquare(myCircle);
+            MyCircle myCircle = shapeService.
+                    getInscribedCircle(describedSquare);
+            MySquare inscribedSquare = shapeService.
+                    getInscribedSquare(myCircle);
             shapeConsole.printSquareArea(inscribedSquare.getArea());
             shapeConsole.printSquareScale(shapeService.
                     getSquareScale(describedSquare, inscribedSquare));

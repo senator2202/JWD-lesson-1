@@ -15,7 +15,8 @@ public class TensTaskMain {
             double[][] msXAndValues = functionService.
                     getFunctionValues(tg, a, b, h);
             FunctionConsole functionConsole = new FunctionConsole();
-            functionConsole.printFunctionValues(tg.getSignature(), msXAndValues);
+            functionConsole.printFunctionValues(tg.getSignature(),
+                    msXAndValues);
         } catch (NumberFormatException ex) {
             System.out.println(ex);
         }

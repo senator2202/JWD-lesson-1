@@ -8,10 +8,12 @@ public class DateTimeService {
     public int getDays(int month, int year) {
         DateTimeValidator dateTimeValidator = new DateTimeValidator();
         if (!dateTimeValidator.validateMonth(month)) {
-            throw new NumberFormatException("Wrong month value! It must be between 1 and 12!");
+            throw new NumberFormatException("Wrong month value! " +
+                    "It must be between 1 and 12!");
         }
         if (!dateTimeValidator.validateYear(year)) {
-            throw new NumberFormatException("Wrong year value! It must be > 0!");
+            throw new NumberFormatException("Wrong year value! " +
+                    "It must be > 0!");
         }
         return (isLeapYear(year) && month == 2)
                 ? MonthDays.values()[month - 1].getDays() + 1
@@ -21,7 +23,8 @@ public class DateTimeService {
     /*Method returns true if the year is leap*/
     public boolean isLeapYear(int year) {
         if (!new DateTimeValidator().validateYear(year)) {
-            throw new NumberFormatException("Wrong year value! It must be > 0!");
+            throw new NumberFormatException("Wrong year value!" +
+                    " It must be > 0!");
         }
         return (year % 4 == 0);
     }

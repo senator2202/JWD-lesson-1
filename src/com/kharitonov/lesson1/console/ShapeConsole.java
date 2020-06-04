@@ -16,7 +16,7 @@ public class ShapeConsole {
     }
 
     public void printCircumference(double radius, double circumference) {
-        System.out.printf("%nCircle with radius %5.2f has circumference of %5.2f",
-                radius, circumference);
+        System.out.printf("%nCircle with radius %5.2f has circumference" +
+                " of %5.2f", radius, circumference);
     }
 }

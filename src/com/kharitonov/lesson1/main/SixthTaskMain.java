@@ -8,7 +8,7 @@ public class SixthTaskMain {
         int totalSeconds = 25379;
         try {
             int[] time = new DateTimeService().splitSeconds(totalSeconds);
-            new DateTimeConsole().printSplitSeconds(totalSeconds,time);
+            new DateTimeConsole().printSplitSeconds(totalSeconds, time);
 
         } catch (NumberFormatException ex) {
             System.out.println(ex);

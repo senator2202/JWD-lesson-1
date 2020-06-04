@@ -11,7 +11,8 @@ public class EightsTaskMain {
         try {
             FunctionService functionService = new FunctionService();
             double result = functionService.getFunctionValue(myFunction, x);
-            String functionSign = functionService.getFunctionSignature(myFunction, x);
+            String functionSign = functionService.
+                    getFunctionSignature(myFunction, x);
             new FunctionConsole().
                     printFunctionValue(functionSign, x, result);
         } catch (NumberFormatException ex) {
