@@ -11,18 +11,12 @@ d
 4src/com/kharitonov/lesson1/console/PointConsole.java,2\f\2f64ffec702c97df13baf0a5ceaa6303f50e2726
 d
 4src/com/kharitonov/lesson1/console/ShapeConsole.java,4\2\42bb19b62120f464daace6f28fda5f6362af00e3
-]
--src/com/kharitonov/lesson1/entity/Circle.java,6\5\657d3d58f2c6b7aba08a61cde57f640948e56b98
 `
 0src/com/kharitonov/lesson1/entity/MonthDays.java,6\4\64b85e7cee3930181990698887a15c9053484e9d
 a
 1src/com/kharitonov/lesson1/entity/MyFunction.java,7\6\760c413b7d87123064a57485c78c0fd0c560b2cc
 ^
 .src/com/kharitonov/lesson1/entity/MyPoint.java,1\7\1723d86074050996c4609e40b10065eddfdc14ff
-\
-,src/com/kharitonov/lesson1/entity/Shape.java,c\2\c2be27a9ee4ff9a11710da0eba31919e0724172b
-]
--src/com/kharitonov/lesson1/entity/Square.java,a\6\a6ff251adc9ee47ca936c5cae772949ac0953a2a
 f
 6src/com/kharitonov/lesson1/entity/TangentFunction.java,f\f\ff795e08fb325b2ba8768f254d4633f8a4c71dc5
 c
@@ -63,3 +57,9 @@ h
 EpamJWD.iml,d\e\de6381d089d66a979dd6d04fabddeeb5f207ee23
 e
 5src/com/kharitonov/lesson1/service/NumberService.java,d\6\d640bdd6776e5c5ed4f5b27900b0afa416315b6b
+_
+/src/com/kharitonov/lesson1/entity/MyCircle.java,8\0\80e7303c4088b1cda732af4ff89468cae3c65f9d
+_
+/src/com/kharitonov/lesson1/entity/MySquare.java,1\f\1f080793ac87f6ca63123a0f984646e49534544e
+^
+.src/com/kharitonov/lesson1/entity/MyShape.java,3\7\373be0d8e286568fc8dbeb97646209ac71cd92f1

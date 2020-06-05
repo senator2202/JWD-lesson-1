@@ -1,12 +1,11 @@
 package com.kharitonov.lesson1.service;
 
-import com.kharitonov.lesson1.entity.MyCircle;
-import com.kharitonov.lesson1.entity.MySquare;
-import com.kharitonov.lesson1.validator.ValueValidator;
+import com.kharitonov.lesson1.entity.Circle;
+import com.kharitonov.lesson1.entity.Square;
 
 public class ShapeService {
     public double getSquareSide(double area) {
-        if (!new ValueValidator().validatePositiveValue(area)) {
+        if (area<0) {
             throw new NumberFormatException("Wrong square area value! " +
                     "It should be > 0!");
         }
@@ -14,46 +13,45 @@ public class ShapeService {
     }
 
     /*Described/inscribes square coefficient*/
-    public double getSquareScale(MySquare describedSquare,
-                                 MySquare inscribedSquare) {
-        ValueValidator valueValidator = new ValueValidator();
-        if (!valueValidator.validatePositiveValue(describedSquare.getSide())) {
+    public double getSquareScale(Square describedSquare,
+                                 Square inscribedSquare) {
+        if (describedSquare.getSide()<=0) {
             throw new NumberFormatException("Side of described" +
                     " square must be > 0!");
         }
-        if (!valueValidator.validatePositiveValue(inscribedSquare.getSide())) {
+        if (inscribedSquare.getSide()<=0) {
             throw new NumberFormatException("Side of inscribed" +
                     " square must be > 0!");
         }
-        return describedSquare.getArea() / inscribedSquare.getArea();
+        return describedSquare.area() / inscribedSquare.area();
     }
 
-    public MyCircle getInscribedCircle(MySquare mySquare) {
-        if (!new ValueValidator().validatePositiveValue(mySquare.getSide())) {
-            throw new NumberFormatException("Side of mySquare must be > 0!");
+    public Circle getInscribedCircle(Square square) {
+        if (square.getSide()<=0) {
+            throw new NumberFormatException("Side of square must be > 0!");
         }
-        return new MyCircle(mySquare.getSide() / 2);
+        return new Circle(square.getSide() / 2);
     }
 
-    public MySquare getInscribedSquare(MyCircle myCircle) {
-        if (!new ValueValidator().validatePositiveValue(myCircle.getRadius())) {
-            throw new NumberFormatException("Radius of myCircle must be > 0!");
+    public Square getInscribedSquare(Circle circle) {
+        if (circle.getRadius()<=0) {
+            throw new NumberFormatException("Radius of circle must be > 0!");
         }
-        double side = 2 * myCircle.getRadius() / Math.sqrt(2);
-        return new MySquare(side);
+        double side = 2 * circle.getRadius() / Math.sqrt(2);
+        return new Square(side);
     }
 
-    public double getCircleArea(MyCircle myCircle) {
-        if (!new ValueValidator().validatePositiveValue(myCircle.getRadius())) {
-            throw new NumberFormatException("MyCircle radius must be > 0!");
+    public double getCircleArea(Circle circle) {
+        if (circle.getRadius()<=0) {
+            throw new NumberFormatException("Circle radius must be > 0!");
         }
-        return myCircle.getArea();
+        return circle.area();
     }
 
-    public double getCircumference(MyCircle myCircle) {
-        if (!new ValueValidator().validatePositiveValue(myCircle.getRadius())) {
-            throw new NumberFormatException("MyCircle radius must be > 0!");
+    public double getCircumference(Circle circle) {
+        if (circle.getRadius()<=0) {
+            throw new NumberFormatException("Circle radius must be > 0!");
         }
-        return myCircle.getCircumference();
+        return circle.circumference();
     }
 }

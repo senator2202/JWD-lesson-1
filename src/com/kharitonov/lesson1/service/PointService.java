@@ -1,6 +1,6 @@
 package com.kharitonov.lesson1.service;
 
-import com.kharitonov.lesson1.entity.MyPoint;
+import com.kharitonov.lesson1.entity.Point;
 import com.kharitonov.lesson1.validator.PointValidator;
 
 public class PointService {
@@ -8,7 +8,7 @@ public class PointService {
      * returns 2 if point2 closer than point1,
      * returns 0 if distance from origin to point1 equals to distance
      * from origin to point2*/
-    public int defineClosestPoint(MyPoint point1, MyPoint point2) {
+    public int defineClosestPoint(Point point1, Point point2) {
         PointValidator pointValidator = new PointValidator();
         String message = "X coordinates of points must be in range "
                 + pointValidator.getXRange() + ".\n"

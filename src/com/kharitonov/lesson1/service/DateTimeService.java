@@ -1,6 +1,6 @@
 package com.kharitonov.lesson1.service;
 
-import com.kharitonov.lesson1.entity.MonthDays;
+import com.kharitonov.lesson1.entity.Month;
 import com.kharitonov.lesson1.validator.DateTimeValidator;
 
 public class DateTimeService {
@@ -16,8 +16,8 @@ public class DateTimeService {
                     "It must be > 0!");
         }
         return (isLeapYear(year) && month == 2)
-                ? MonthDays.values()[month - 1].getDays() + 1
-                : MonthDays.values()[month - 1].getDays();
+                ? Month.values()[month - 1].getDays() + 1
+                : Month.values()[month - 1].getDays();
     }
 
     /*Method returns true if the year is leap*/

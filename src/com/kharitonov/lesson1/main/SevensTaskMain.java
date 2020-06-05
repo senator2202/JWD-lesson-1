@@ -1,13 +1,13 @@
 package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.PointConsole;
-import com.kharitonov.lesson1.entity.MyPoint;
+import com.kharitonov.lesson1.entity.Point;
 import com.kharitonov.lesson1.service.PointService;
 
 public class SevensTaskMain {
     public static void main(String[] args) {
-        MyPoint point1 = new MyPoint(-4, 9);
-        MyPoint point2 = new MyPoint(17, 3);
+        Point point1 = new Point(-4, 9);
+        Point point2 = new Point(7, 3);
         try {
             PointService pointService = new PointService();
             int result = pointService.defineClosestPoint(point1, point2);

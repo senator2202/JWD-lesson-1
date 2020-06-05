@@ -1,6 +1,6 @@
 package com.kharitonov.lesson1.validator;
 
-import com.kharitonov.lesson1.entity.MyPoint;
+import com.kharitonov.lesson1.entity.Point;
 
 public class PointValidator {
     public static final double XSTART = -10;
@@ -8,7 +8,7 @@ public class PointValidator {
     public static final double YSTART = -10;
     public static final double YEND = 10;
 
-    public boolean validatePoint(MyPoint point) {
+    public boolean validatePoint(Point point) {
         return (point.getX() >= XSTART &&
                 point.getX() <= XEND &&
                 point.getY() >= YSTART &&

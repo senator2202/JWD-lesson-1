@@ -1,8 +1,8 @@
 package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.ShapeConsole;
-import com.kharitonov.lesson1.entity.MyCircle;
-import com.kharitonov.lesson1.entity.MySquare;
+import com.kharitonov.lesson1.entity.Circle;
+import com.kharitonov.lesson1.entity.Square;
 import com.kharitonov.lesson1.service.ShapeService;
 
 
@@ -14,12 +14,12 @@ public class ThirdTaskMain {
             ShapeService shapeService = new ShapeService();
             ShapeConsole shapeConsole = new ShapeConsole();
             double side = shapeService.getSquareSide(area);
-            MySquare describedSquare = new MySquare(side);
-            MyCircle myCircle = shapeService.
+            Square describedSquare = new Square(side);
+            Circle circle = shapeService.
                     getInscribedCircle(describedSquare);
-            MySquare inscribedSquare = shapeService.
-                    getInscribedSquare(myCircle);
-            shapeConsole.printSquareArea(inscribedSquare.getArea());
+            Square inscribedSquare = shapeService.
+                    getInscribedSquare(circle);
+            shapeConsole.printSquareArea(inscribedSquare.area());
             shapeConsole.printSquareScale(shapeService.
                     getSquareScale(describedSquare, inscribedSquare));
         } catch (NumberFormatException ex) {

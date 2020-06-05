@@ -40,7 +40,7 @@ public class NumberService {
 
     /*Метод, проверяющий число на совершенство*/
     public boolean isPerfect(int number) {
-        if (!new ValueValidator().validateNaturalValue(number)) {
+        if (number>0) {
             throw new NumberFormatException("The number is not natural!");
         }
         int sum = 0;
