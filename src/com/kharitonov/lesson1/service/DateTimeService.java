@@ -4,7 +4,7 @@ import com.kharitonov.lesson1.entity.Month;
 import com.kharitonov.lesson1.validator.DateTimeValidator;
 
 public class DateTimeService {
-    /*Method returs number of days in month of definite year*/
+    /*Method returns number of days in month of definite year*/
     public int getDays(int month, int year) {
         DateTimeValidator dateTimeValidator = new DateTimeValidator();
         if (!dateTimeValidator.validateMonth(month)) {

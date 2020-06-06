@@ -9,9 +9,8 @@ public class SecondTaskMain {
         int month = 2;
         int year = 2020;
         DateTimeService dateTimeService = new DateTimeService();
-        int days = 0;
         try {
-            days = dateTimeService.getDays(month, year);
+            int days = dateTimeService.getDays(month, year);
             boolean isLeap = dateTimeService.isLeapYear(year);
             DateTimeConsole dateTimeConsole = new DateTimeConsole();
             dateTimeConsole.printNumberOfDays(month, year, days);

@@ -9,8 +9,8 @@ public class NumberConsole {
     public void printResultForTwoEven(boolean flag, int... numbers) {
         System.out.print("It is " + flag +
                 " that there are two even numbers among ");
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
     }
 

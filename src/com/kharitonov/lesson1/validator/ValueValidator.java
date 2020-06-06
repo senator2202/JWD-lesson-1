@@ -9,6 +9,12 @@ public class ValueValidator {
     }
 
     public String getRange() {
-        return "[" + RANGESTART + ";" + RANGEEND + "]";
+        StringBuilder sb=new StringBuilder();
+        sb.append("[");
+        sb.append(RANGESTART);
+        sb.append(";");
+        sb.append(RANGEEND);
+        sb.append("]");
+        return sb.toString();
     }
 }

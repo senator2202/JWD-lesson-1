@@ -25,13 +25,13 @@ public class NumberService {
     /*Method checks numbers for at least two of them to be even*/
     public boolean checkForTwoEven(int... numbers) {
         int count = 0;
-        for (int i = 0; i < numbers.length; i++) {
+        for (int number : numbers) {
             ValueValidator valueValidator = new ValueValidator();
-            if (!valueValidator.validateInRange(numbers[i])) {
+            if (!valueValidator.validateInRange(number)) {
                 throw new NumberFormatException("All numbers must be " +
                         "in range " + valueValidator.getRange());
             }
-            if (numbers[i] % 2 == 0) {
+            if (number % 2 == 0) {
                 count++;
             }
         }
