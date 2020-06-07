@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class PointValidatorTest {
-    private PointValidator pointValidator = new PointValidator();
+    private final PointValidator pointValidator = new PointValidator();
 
     @Test(groups = "point")
     public void testValidatePointTrue() {

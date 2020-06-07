@@ -8,26 +8,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FunctionService {
-    private static final String XERROR = "X coordinate must be between "
-            + PointValidator.XSTART + " and " + PointValidator.XEND;
+    private static final String X_ERROR = "X coordinate must be between "
+            + PointValidator.X_START + " and " + PointValidator.X_END;
 
     public double getMyFunctionValue(MyFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
-            throw new NumberFormatException(XERROR);
+            throw new NumberFormatException(X_ERROR);
         }
         return function.getValue(x);
     }
 
     public String getMyFunctionSignature(MyFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
-            throw new NumberFormatException(XERROR);
+            throw new NumberFormatException(X_ERROR);
         }
         return function.getSignature(x);
     }
 
     public double getTangentValue(TangentFunction tg, double x) {
         if (!new PointValidator().validateX(x)) {
-            throw new NumberFormatException(XERROR);
+            throw new NumberFormatException(X_ERROR);
         }
         return tg.getValue(x);
     }
@@ -37,7 +37,7 @@ public class FunctionService {
         PointValidator pointValidator = new PointValidator();
         if (!pointValidator.validateX(rangeStart) ||
                 !pointValidator.validateX(rangeEnd)) {
-            throw new NumberFormatException(XERROR);
+            throw new NumberFormatException(X_ERROR);
         }
         HashMap<Double, Double> data = new HashMap<>();
         for (double i = rangeStart; i <= rangeEnd; i += step) {

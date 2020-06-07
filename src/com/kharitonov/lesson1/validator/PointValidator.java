@@ -3,33 +3,33 @@ package com.kharitonov.lesson1.validator;
 import com.kharitonov.lesson1.entity.Point;
 
 public class PointValidator {
-    public static final double XSTART = -10;
-    public static final double XEND = 10;
-    public static final double YSTART = -10;
-    public static final double YEND = 10;
+    public static final double X_START = -10;
+    public static final double X_END = 10;
+    public static final double Y_START = -10;
+    public static final double Y_END = 10;
 
     public boolean validatePoint(Point point) {
-        return (point.getX() >= XSTART &&
-                point.getX() <= XEND &&
-                point.getY() >= YSTART &&
-                point.getY() <= YEND);
+        return (point.getX() >= X_START &&
+                point.getX() <= X_END &&
+                point.getY() >= Y_START &&
+                point.getY() <= Y_END);
     }
 
     public boolean validateX(double x) {
-        return (x >= XSTART && x <= XEND);
+        return (x >= X_START && x <= X_END);
     }
 
     public String getXRange() {
         StringBuilder sb=new StringBuilder();
-        sb.append('[').append(XSTART).append(';');
-        sb.append(XEND).append(']');
+        sb.append('[').append(X_START).append(';');
+        sb.append(X_END).append(']');
         return sb.toString();
     }
 
     public String getYRange() {
         StringBuilder sb=new StringBuilder();
-        sb.append('[').append(YSTART).append(';');
-        sb.append(YEND).append(']');
+        sb.append('[').append(Y_START).append(';');
+        sb.append(Y_END).append(']');
         return sb.toString();
     }
 }

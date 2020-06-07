@@ -152,12 +152,12 @@ public class ShapeServiceTest {
     @DataProvider(name = "dataForGetInscribedSquare")
     @Test(groups = "inscribedSquare")
     public Object[][] dataForGetInscribedSquare() {
-        double koeff = 2 / Math.sqrt(2);
+        double coeff = 2 / Math.sqrt(2);
         return new Object[][]{
-                {new Circle(25), new Square(25 * koeff)},
-                {new Circle(1), new Square(koeff)},
+                {new Circle(25), new Square(25 * coeff)},
+                {new Circle(1), new Square(coeff)},
                 {new Circle(Math.sqrt(2)), new Square(2)},
-                {new Circle(10), new Square(10 * koeff)}
+                {new Circle(10), new Square(10 * coeff)}
         };
     }
 

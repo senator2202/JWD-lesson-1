@@ -8,18 +8,18 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class DateTimeValidatorTest {
-    private DateTimeValidator dateTimeValidator = new DateTimeValidator();
+    private final DateTimeValidator dateTimeValidator = new DateTimeValidator();
 
     @Test(groups = "year")
     public void testValidateYearTrue() {
         boolean actual = dateTimeValidator.validateYear(2015);
-        assertEquals(actual, true);
+        assertTrue(actual);
     }
 
     @Test(groups = "year")
     public void testValidateYearFalse() {
         boolean actual = dateTimeValidator.validateYear(-36);
-        assertEquals(actual, false);
+        assertFalse(actual);
     }
 
     @DataProvider(name = "dataForValidateYear")
@@ -43,13 +43,13 @@ public class DateTimeValidatorTest {
     @Test(groups = "month")
     public void testValidateMonthTrue() {
         boolean actual = dateTimeValidator.validateMonth(3);
-        assertEquals(actual, true);
+        assertTrue(actual);
     }
 
     @Test(groups = "month")
     public void testValidateMonthFalse() {
         boolean actual = dateTimeValidator.validateMonth(13);
-        assertEquals(actual, false);
+        assertFalse(actual);
     }
 
     @DataProvider(name = "dataForValidateMonth")

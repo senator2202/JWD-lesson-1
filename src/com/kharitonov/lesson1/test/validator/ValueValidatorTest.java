@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class ValueValidatorTest {
-    private ValueValidator valueValidator = new ValueValidator();
+    private final ValueValidator valueValidator = new ValueValidator();
 
-    private int number;//number to validate
-    private boolean expected;//expected validating value
+    private final int number;//number to validate
+    private final boolean expected;//expected validating value
 
     /*Factory creates new test objects via constructor with params*/
     @Factory(dataProvider = "dataForValidateInRange")

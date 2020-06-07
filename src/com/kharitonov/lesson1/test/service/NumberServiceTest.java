@@ -77,9 +77,9 @@ public class NumberServiceTest {
         assertEquals(actualResult, expectedResult);
     }
 
-    @DataProvider(name = "dataForCheckForTwoEvenEception")
+    @DataProvider(name = "dataForCheckForTwoEvenException")
     @Test(groups = "twoEven")
-    public Object[][] dataForCheckForTwoEvenEception() {
+    public Object[][] dataForCheckForTwoEvenException() {
         return new Object[][]{
                 {new int[]{200, 4, 1, 3}},
                 {new int[]{6, -777, 999, 11}},
@@ -90,9 +90,9 @@ public class NumberServiceTest {
 
     @Parameters({"numbers"})
     @Test(groups = "twoEven",
-            dataProvider = "dataForCheckForTwoEvenEception",
+            dataProvider = "dataForCheckForTwoEvenException",
             expectedExceptions = NumberFormatException.class)
-    public void testCheckForTwoEvenEception(int[] numbers) {
+    public void testCheckForTwoEvenException(int[] numbers) {
         try {
             numberService.checkForTwoEven(numbers);
         } catch (NumberFormatException ex) {

@@ -71,10 +71,10 @@ public class FunctionServiceTest {
     public Object[][] dataForMyFunctionSignature() {
         MyFunction myFunction = new MyFunction();
         return new Object[][]{
-                {myFunction, 3.0, MyFunction.SIGNATUREA},
-                {myFunction, 2.9, MyFunction.SIGNATUREB},
-                {myFunction, -9.9, MyFunction.SIGNATUREB},
-                {myFunction, 9.9, MyFunction.SIGNATUREA}
+                {myFunction, 3.0, MyFunction.SIGNATURE_A},
+                {myFunction, 2.9, MyFunction.SIGNATURE_B},
+                {myFunction, -9.9, MyFunction.SIGNATURE_B},
+                {myFunction, 9.9, MyFunction.SIGNATURE_B}
         };
     }
 
@@ -83,10 +83,10 @@ public class FunctionServiceTest {
             dataProvider = "dataForMyFunctionSignature")
     public void testGetMyFunctionSignature(MyFunction myFunction,
                                            double x,
-                                           String exprectedResult) {
+                                           String expectedResult) {
         String actualResult = functionService.
                 getMyFunctionSignature(myFunction, x);
-        assertEquals(actualResult, exprectedResult);
+        assertEquals(actualResult, expectedResult);
     }
 
     @DataProvider(name = "dataForMyFunctionSignatureException")

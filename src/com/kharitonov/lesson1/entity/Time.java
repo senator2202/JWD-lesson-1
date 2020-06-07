@@ -1,9 +1,9 @@
 package com.kharitonov.lesson1.entity;
 
 public class Time {
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private final int hours;
+    private final int minutes;
+    private final int seconds;
 
     public int getHours() {
         return hours;
