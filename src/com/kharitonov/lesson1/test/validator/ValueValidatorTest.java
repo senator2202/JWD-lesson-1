@@ -1,8 +1,8 @@
-package com.kharitonov.lesson1.test;
+package com.kharitonov.lesson1.test.validator;
 
 import com.kharitonov.lesson1.validator.ValueValidator;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
 
@@ -11,23 +11,31 @@ import static org.testng.Assert.*;
 public class ValueValidatorTest {
     private ValueValidator valueValidator = new ValueValidator();
 
+    private int number;//number to validate
+    private boolean expected;//expected validating value
+
+    /*Factory creates new test objects via constructor with params*/
+    @Factory(dataProvider = "dataForValidateInRange")
+    public ValueValidatorTest(int number, boolean expected) {
+        this.number = number;
+        this.expected = expected;
+    }
+
     @Test(groups = "inRange")
     public void testValidateInRangeTrue() {
         boolean actual = valueValidator.validateInRange(2);
-        boolean expected = true;
-        assertEquals(actual, expected);
+        assertEquals(actual, true);
     }
 
     @Test(groups = "inRange")
     public void testValidateInRangeFalse() {
         boolean actual = valueValidator.validateInRange(222);
-        boolean expected = false;
-        assertEquals(actual, expected);
+        assertEquals(actual, false);
     }
 
     @DataProvider(name = "dataForValidateInRange")
     @Test(groups = "inRange")
-    public Object[][] dataForValidateInRange() {
+    public static Object[][] dataForValidateInRange() {
         return new Object[][]{
                 {2, true},
                 {-2, true},
@@ -37,9 +45,9 @@ public class ValueValidatorTest {
         };
     }
 
-    @Parameters({"number", "expected"})
-    @Test(dataProvider = "dataForValidateInRange", groups = "inRange")
-    public void testValidateInRange(int number, boolean expected) {
+
+    @Test(groups = "inRange")
+    public void testValidateInRange() {
         boolean actual = valueValidator.validateInRange(number);
         assertEquals(actual, expected);
     }
@@ -47,7 +55,6 @@ public class ValueValidatorTest {
     @Test
     public void testGetRange() {
         String actual = valueValidator.getRange();
-        String expected = "[-100;100]";
-        assertEquals(actual, expected);
+        assertEquals(actual, "[-100;100]");
     }
 }

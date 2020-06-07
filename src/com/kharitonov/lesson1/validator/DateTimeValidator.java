@@ -9,7 +9,7 @@ public class DateTimeValidator {
     }
 
     public boolean validateMonth(int month) {
-        return (month >= 1 && month < MAXMONTH);
+        return (month >= 1 && month <= MAXMONTH);
     }
 
     public boolean validateDaySeconds(int totalSeconds) {

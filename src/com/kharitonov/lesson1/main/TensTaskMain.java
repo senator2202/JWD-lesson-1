@@ -4,19 +4,22 @@ import com.kharitonov.lesson1.console.FunctionConsole;
 import com.kharitonov.lesson1.entity.TangentFunction;
 import com.kharitonov.lesson1.service.FunctionService;
 
+import java.util.HashMap;
+
 public class TensTaskMain {
     public static void main(String[] args) {
-        double a = -5;
-        double b = 10;
-        double h = 1.5;
+        double a = 0.0;
+        double b = 0.0;
+        double h = 1.0;
         try {
             TangentFunction tg = new TangentFunction();
             FunctionService functionService = new FunctionService();
-            double[][] msXAndValues = functionService.
-                    getFunctionValues(tg, a, b, h);
+            HashMap<Double,Double> result =
+                    (HashMap<Double, Double>) functionService.
+                    getTangentValues(tg, a, b, h);
             FunctionConsole functionConsole = new FunctionConsole();
             functionConsole.printFunctionValues(tg.getSignature(),
-                    msXAndValues);
+                    result);
         } catch (NumberFormatException ex) {
             System.out.println(ex);
         }

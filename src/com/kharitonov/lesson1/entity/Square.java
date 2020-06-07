@@ -22,4 +22,31 @@ public class Square {
         return Math.pow(side, 2);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Square square = (Square) o;
+
+        return Double.compare(square.side, side) == 0;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Square{");
+        sb.append("side=").append(side);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(side);
+        return (int) (temp ^ (temp >>> 32));
+    }
 }

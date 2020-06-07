@@ -20,20 +20,16 @@ public class PointValidator {
     }
 
     public String getXRange() {
-        StringBuilder sb=new StringBuilder("[");
-        sb.append(XSTART);
-        sb.append(";");
-        sb.append(XEND);
-        sb.append("]");
+        StringBuilder sb=new StringBuilder();
+        sb.append('[').append(XSTART).append(';');
+        sb.append(XEND).append(']');
         return sb.toString();
     }
 
     public String getYRange() {
-        StringBuilder sb=new StringBuilder("[");
-        sb.append(YSTART);
-        sb.append(";");
-        sb.append(YEND);
-        sb.append("]");
+        StringBuilder sb=new StringBuilder();
+        sb.append('[').append(YSTART).append(';');
+        sb.append(YEND).append(']');
         return sb.toString();
     }
 }

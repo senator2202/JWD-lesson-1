@@ -1,5 +1,7 @@
 package com.kharitonov.lesson1.console;
 
+import com.kharitonov.lesson1.entity.Time;
+
 public class DateTimeConsole {
     public void printNumberOfDays(int month, int year, int days) {
         System.out.printf("There are %d days in %d month of %d year%n",
@@ -13,8 +15,9 @@ public class DateTimeConsole {
         System.out.println(result);
     }
 
-    public void printSplitSeconds(int totalSeconds, int[] time) {
+    public void printSplitSeconds(int totalSeconds, Time time) {
         System.out.printf("%d seconds will be %d hours, %d minutes, " +
-                "%d seconds", totalSeconds, time[0], time[1], time[2]);
+                        "%d seconds", totalSeconds, time.getHours(),
+                time.getMinutes(), time.getSeconds());
     }
 }

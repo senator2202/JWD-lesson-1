@@ -10,9 +10,9 @@ public class EightsTaskMain {
         double x = -12.2;
         try {
             FunctionService functionService = new FunctionService();
-            double result = functionService.getFunctionValue(myFunction, x);
+            double result = functionService.getMyFunctionValue(myFunction, x);
             String functionSign = functionService.
-                    getFunctionSignature(myFunction, x);
+                    getMyFunctionSignature(myFunction, x);
             new FunctionConsole().
                     printFunctionValue(functionSign, x, result);
         } catch (NumberFormatException ex) {

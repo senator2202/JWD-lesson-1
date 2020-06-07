@@ -1,6 +1,7 @@
 package com.kharitonov.lesson1.service;
 
 import com.kharitonov.lesson1.entity.Month;
+import com.kharitonov.lesson1.entity.Time;
 import com.kharitonov.lesson1.validator.DateTimeValidator;
 
 public class DateTimeService {
@@ -30,16 +31,15 @@ public class DateTimeService {
     }
 
     /*Method splits seconds into hours, minutes, seconds*/
-    public int[] splitSeconds(int totalSeconds) {
+    public Time splitSeconds(int totalSeconds) {
         if (!new DateTimeValidator().validateDaySeconds(totalSeconds)) {
             throw new NumberFormatException("Number of seconds must be" +
                     "between 0 and 86400!");
         }
-        int[] time = new int[3];
-        time[0] = totalSeconds / 3600;//hours
-        time[1] = (totalSeconds - (time[0] * 3600)) / 60;//minutes
-        time[2] = totalSeconds - ((time[0] * 3600) + (time[1] * 60));//seconds
-        return time;
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds - (hours * 3600)) / 60;
+        int seconds = totalSeconds - ((hours * 3600) + minutes * 60);
+        return new com.kharitonov.lesson1.entity.Time(hours, minutes, seconds);
     }
 
 }

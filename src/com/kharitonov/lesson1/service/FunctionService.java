@@ -4,40 +4,45 @@ import com.kharitonov.lesson1.entity.MyFunction;
 import com.kharitonov.lesson1.entity.TangentFunction;
 import com.kharitonov.lesson1.validator.PointValidator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FunctionService {
     private static final String XERROR = "X coordinate must be between "
             + PointValidator.XSTART + " and " + PointValidator.XEND;
 
-    public double getFunctionValue(MyFunction function, double x) {
+    public double getMyFunctionValue(MyFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
             throw new NumberFormatException(XERROR);
         }
         return function.getValue(x);
     }
 
-    public String getFunctionSignature(MyFunction function, double x) {
+    public String getMyFunctionSignature(MyFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
             throw new NumberFormatException(XERROR);
         }
         return function.getSignature(x);
     }
 
-    public double getFunctionValue(TangentFunction tg, double x) {
+    public double getTangentValue(TangentFunction tg, double x) {
         if (!new PointValidator().validateX(x)) {
             throw new NumberFormatException(XERROR);
         }
         return tg.getValue(x);
     }
 
-    public double[][] getFunctionValues(TangentFunction tg, double a,
-                                        double b, double h) {
-        int size = (int) ((b - a) / h) + 1;
-        double[][] msXAndValues = new double[2][size];
-        int count = 0;
-        for (double i = a; i < b; i += h) {
-            msXAndValues[0][count] = i;
-            msXAndValues[1][count++] = getFunctionValue(tg, i);
+    public Map<Double, Double> getTangentValues(TangentFunction tg, double rangeStart,
+                                                double rangeEnd, double step) {
+        PointValidator pointValidator = new PointValidator();
+        if (!pointValidator.validateX(rangeStart) ||
+                !pointValidator.validateX(rangeEnd)) {
+            throw new NumberFormatException(XERROR);
         }
-        return msXAndValues;
+        HashMap<Double, Double> data = new HashMap<>();
+        for (double i = rangeStart; i <= rangeEnd; i += step) {
+            data.put(i, getTangentValue(tg, i));
+        }
+        return data;
     }
 }

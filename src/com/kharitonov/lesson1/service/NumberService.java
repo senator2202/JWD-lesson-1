@@ -8,17 +8,17 @@ public class NumberService {
 
     /*Method returns last digit of the square of the number*/
     public int getLastDigitOfSquare(int number) {
-        ValueValidator valueValidator = new ValueValidator();
-        if (!valueValidator.validateInRange(number)) {
-            throw new NumberFormatException("Number must be in range "
-                    + valueValidator.getRange());
-        }
         int digit = defineLastDigit(number);
         return defineLastDigit((int) Math.pow(digit, 2));
     }
 
     /*Method returns last digit of the number*/
     private int defineLastDigit(int number) {
+        ValueValidator valueValidator = new ValueValidator();
+        if (!valueValidator.validateInRange(number)) {
+            throw new NumberFormatException("Number must be in range "
+                    + valueValidator.getRange());
+        }
         return number % 10;
     }
 
@@ -38,9 +38,9 @@ public class NumberService {
         return (count > 1);
     }
 
-    /*Метод, проверяющий число на совершенство*/
+    /*Метод, checking if the number is perfect*/
     public boolean isPerfect(int number) {
-        if (number>0) {
+        if (number <= 0) {
             throw new NumberFormatException("The number is not natural!");
         }
         int sum = 0;
@@ -51,7 +51,7 @@ public class NumberService {
         return (sum == number);
     }
 
-    /*Метод, возвращающий список делителей*/
+    /*Method returns dividers of the number*/
     private ArrayList<Integer> getDividers(int number) {
         ArrayList<Integer> dividers = new ArrayList<>();
         for (int i = 1; i < number; i++) {

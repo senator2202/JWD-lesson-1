@@ -1,4 +1,4 @@
-package com.kharitonov.lesson1.test;
+package com.kharitonov.lesson1.test.validator;
 
 import com.kharitonov.lesson1.validator.DateTimeValidator;
 import org.testng.annotations.DataProvider;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class DateTimeValidatorTest {
-    DateTimeValidator dateTimeValidator = new DateTimeValidator();
+    private DateTimeValidator dateTimeValidator = new DateTimeValidator();
 
     @Test(groups = "year")
     public void testValidateYearTrue() {

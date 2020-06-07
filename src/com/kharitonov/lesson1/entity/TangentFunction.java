@@ -10,4 +10,11 @@ public class TangentFunction {
     public double getValue(double x) {
         return Math.tan(x);
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TangentFunction{");
+        sb.append('}');
+        return sb.toString();
+    }
 }

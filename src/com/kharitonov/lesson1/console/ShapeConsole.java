@@ -6,7 +6,8 @@ public class ShapeConsole {
     }
 
     public void printSquareScale(double scale) {
-        System.out.printf("%nScale of described square and inscribed is %f",
+        System.out.printf("%nFirst square area is in %f times bigger than " +
+                        "second",
                 scale);
     }
 

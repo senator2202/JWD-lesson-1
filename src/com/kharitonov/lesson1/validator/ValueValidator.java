@@ -10,11 +10,8 @@ public class ValueValidator {
 
     public String getRange() {
         StringBuilder sb=new StringBuilder();
-        sb.append("[");
-        sb.append(RANGESTART);
-        sb.append(";");
-        sb.append(RANGEEND);
-        sb.append("]");
+        sb.append('[').append(RANGESTART).append(';');
+        sb.append(RANGEEND).append(']');
         return sb.toString();
     }
 }

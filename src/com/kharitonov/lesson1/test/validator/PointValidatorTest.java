@@ -1,4 +1,4 @@
-package com.kharitonov.lesson1.test;
+package com.kharitonov.lesson1.test.validator;
 
 import com.kharitonov.lesson1.entity.Point;
 import com.kharitonov.lesson1.validator.PointValidator;
