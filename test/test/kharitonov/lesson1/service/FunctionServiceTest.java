@@ -1,7 +1,7 @@
 package test.kharitonov.lesson1.service;
 
-import com.kharitonov.lesson1.entity.MyFunction;
 import com.kharitonov.lesson1.entity.TangentFunction;
+import com.kharitonov.lesson1.entity.TaskFunction;
 import com.kharitonov.lesson1.service.FunctionService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class FunctionServiceTest {
     FunctionService functionService;
@@ -21,94 +21,95 @@ public class FunctionServiceTest {
         functionService = new FunctionService();
     }
 
-    @DataProvider(name = "dataForMyFunctionValue")
+    @DataProvider(name = "dataForTaskFunctionValue")
     @Test(groups = "functionValue")
-    public Object[][] dataForMyFunctionValue() {
-        MyFunction myFunction = new MyFunction();
+    public Object[][] dataForTaskFunctionValue() {
+        TaskFunction taskFunction = new TaskFunction();
         return new Object[][]{
-                {myFunction, 0.0, -1.0 / 6.0},
-                {myFunction, 2.0, 1.0 / 2.0},
-                {myFunction, 3.0, 9.0},
-                {myFunction, 5.0, -1.0}
+                {taskFunction, 0.0, -1.0 / 6.0},
+                {taskFunction, 2.0, 1.0 / 2.0},
+                {taskFunction, 3.0, 9.0},
+                {taskFunction, 5.0, -1.0}
         };
     }
 
     @Parameters({"function", "x", "expectedResult"})
-    @Test(dataProvider = "dataForMyFunctionValue", groups = "functionValue")
-    public void testGetMyFunctionValue(MyFunction function, double x,
-                                       double expectedResult) {
-        double actualResult = functionService.getMyFunctionValue(function, x);
+    @Test(dataProvider = "dataForTaskFunctionValue", groups = "functionValue")
+    public void testGetTaskFunctionValue(TaskFunction function, double x,
+                                         double expectedResult) {
+        double actualResult = functionService.getTaskFunctionValue(function, x);
         assertEquals(actualResult, expectedResult);
     }
 
-    @DataProvider(name = "dataForMyFunctionValueException")
+    @DataProvider(name = "dataForTaskFunctionValueException")
     @Test(groups = "functionValue")
-    public Object[][] dataForMyFunctionValueException() {
-        MyFunction myFunction = new MyFunction();
+    public Object[][] dataForTaskFunctionValueException() {
+        TaskFunction taskFunction = new TaskFunction();
         return new Object[][]{
-                {myFunction, -11.0},
-                {myFunction, 22.0},
-                {myFunction, 333.0},
-                {myFunction, -15.0}
+                {taskFunction, -11.0},
+                {taskFunction, 22.0},
+                {taskFunction, 333.0},
+                {taskFunction, -15.0}
         };
     }
 
     @Parameters({"function", "x"})
-    @Test(dataProvider = "dataForMyFunctionValueException",
+    @Test(dataProvider = "dataForTaskFunctionValueException",
             groups = "functionValue",
             expectedExceptions = NumberFormatException.class)
-    public void testGetMyFunctionValueException(MyFunction function, double x) {
+    public void testGetTaskFunctionValueException(TaskFunction function,
+                                                  double x) {
         try {
-            functionService.getMyFunctionValue(function, x);
+            functionService.getTaskFunctionValue(function, x);
         } catch (NumberFormatException ex) {
             System.out.println(ex);
             throw ex;
         }
     }
 
-    @DataProvider(name = "dataForMyFunctionSignature")
+    @DataProvider(name = "dataForTaskFunctionSignature")
     @Test(groups = "functionSignature")
-    public Object[][] dataForMyFunctionSignature() {
-        MyFunction myFunction = new MyFunction();
+    public Object[][] dataForTaskFunctionSignature() {
+        TaskFunction taskFunction = new TaskFunction();
         return new Object[][]{
-                {myFunction, 3.0, MyFunction.SIGNATURE_A},
-                {myFunction, 2.9, MyFunction.SIGNATURE_B},
-                {myFunction, -9.9, MyFunction.SIGNATURE_B},
-                {myFunction, 9.9, MyFunction.SIGNATURE_B}
+                {taskFunction, 3.0, TaskFunction.SIGNATURE_A},
+                {taskFunction, 2.9, TaskFunction.SIGNATURE_B},
+                {taskFunction, -9.9, TaskFunction.SIGNATURE_B},
+                {taskFunction, 9.9, TaskFunction.SIGNATURE_B}
         };
     }
 
-    @Parameters({"myFunction", "x", "expectedResult"})
+    @Parameters({"taskFunction", "x", "expectedResult"})
     @Test(groups = "functionSignature",
-            dataProvider = "dataForMyFunctionSignature")
-    public void testGetMyFunctionSignature(MyFunction myFunction,
+            dataProvider = "dataForTaskFunctionSignature")
+    public void testGetMyFunctionSignature(TaskFunction taskFunction,
                                            double x,
                                            String expectedResult) {
         String actualResult = functionService.
-                getMyFunctionSignature(myFunction, x);
+                getTaskFunctionSignature(taskFunction, x);
         assertEquals(actualResult, expectedResult);
     }
 
-    @DataProvider(name = "dataForMyFunctionSignatureException")
+    @DataProvider(name = "dataForTaskFunctionSignatureException")
     @Test(groups = "functionSignature")
-    public Object[][] dataForMyFunctionSignatureException() {
-        MyFunction myFunction = new MyFunction();
+    public Object[][] dataForTaskFunctionSignatureException() {
+        TaskFunction taskFunction = new TaskFunction();
         return new Object[][]{
-                {myFunction, 33.0},
-                {myFunction, 22.9},
-                {myFunction, -19.9},
-                {myFunction, 99.9}
+                {taskFunction, 33.0},
+                {taskFunction, 22.9},
+                {taskFunction, -19.9},
+                {taskFunction, 99.9}
         };
     }
 
     @Parameters({"myFunction", "x"})
     @Test(groups = "functionSignature",
-            dataProvider = "dataForMyFunctionSignatureException",
+            dataProvider = "dataForTaskFunctionSignatureException",
             expectedExceptions = NumberFormatException.class)
-    public void testGetMyFunctionSignatureException(MyFunction myFunction,
-                                                    double x) {
+    public void testGetTaskFunctionSignatureException(TaskFunction taskFunction,
+                                                      double x) {
         try {
-            functionService.getMyFunctionSignature(myFunction, x);
+            functionService.getTaskFunctionSignature(taskFunction, x);
         } catch (NumberFormatException ex) {
             System.out.println(ex);
             throw ex;
@@ -179,8 +180,8 @@ public class FunctionServiceTest {
         };
     }
 
-    @Parameters({"tangentFunction", "rangeStart",
-            "rangeEnd", "step", "expectedResult"})
+    @Parameters({"tangentFunction", "rangeStart", "rangeEnd", "step",
+            "expectedResult"})
     @Test(groups = "tangentValues", dataProvider = "dataForTangentValues")
     public void testGetTangentValues(TangentFunction tangent,
                                      double rangeStart,

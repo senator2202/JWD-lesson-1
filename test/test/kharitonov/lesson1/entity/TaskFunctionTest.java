@@ -1,18 +1,18 @@
 package test.kharitonov.lesson1.entity;
 
-import com.kharitonov.lesson1.entity.MyFunction;
+import com.kharitonov.lesson1.entity.TaskFunction;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class MyFunctionTest {
-    MyFunction myFunction = new MyFunction();
+public class TaskFunctionTest {
+    TaskFunction taskFunction = new TaskFunction();
 
     @BeforeTest
     private void init() {
-        myFunction = new MyFunction();
+        taskFunction = new TaskFunction();
     }
 
     @DataProvider(name = "dataForSignature")
@@ -28,7 +28,7 @@ public class MyFunctionTest {
     @Parameters({"x", "expectedResult"})
     @Test(dataProvider = "dataForSignature", groups = "signature")
     public void testGetSignature(double x, String expectedResult) {
-        String actualResult = myFunction.getSignature(x);
+        String actualResult = taskFunction.getSignature(x);
         Assert.assertEquals(actualResult, expectedResult);
     }
 
@@ -46,7 +46,7 @@ public class MyFunctionTest {
     @Parameters({"x", "expectedResult"})
     @Test(dataProvider = "dataForValue", groups = "value")
     public void testGetValue(double x, double expectedResult) {
-        double actualResult = myFunction.getValue(x);
+        double actualResult = taskFunction.getValue(x);
         Assert.assertEquals(actualResult, expectedResult, 0.000001);
     }
 }

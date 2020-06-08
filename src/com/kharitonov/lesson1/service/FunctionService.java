@@ -1,7 +1,7 @@
 package com.kharitonov.lesson1.service;
 
-import com.kharitonov.lesson1.entity.MyFunction;
 import com.kharitonov.lesson1.entity.TangentFunction;
+import com.kharitonov.lesson1.entity.TaskFunction;
 import com.kharitonov.lesson1.validator.PointValidator;
 
 import java.util.HashMap;
@@ -11,14 +11,14 @@ public class FunctionService {
     private static final String X_ERROR = "X coordinate must be between "
             + PointValidator.X_START + " and " + PointValidator.X_END;
 
-    public double getMyFunctionValue(MyFunction function, double x) {
+    public double getTaskFunctionValue(TaskFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
             throw new NumberFormatException(X_ERROR);
         }
         return function.getValue(x);
     }
 
-    public String getMyFunctionSignature(MyFunction function, double x) {
+    public String getTaskFunctionSignature(TaskFunction function, double x) {
         if (!new PointValidator().validateX(x)) {
             throw new NumberFormatException(X_ERROR);
         }
