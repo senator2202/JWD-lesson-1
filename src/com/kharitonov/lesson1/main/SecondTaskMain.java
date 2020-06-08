@@ -1,6 +1,7 @@
 package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.DateTimeConsole;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.DateTimeService;
 
 public class SecondTaskMain {
@@ -15,7 +16,7 @@ public class SecondTaskMain {
             DateTimeConsole dateTimeConsole = new DateTimeConsole();
             dateTimeConsole.printNumberOfDays(month, year, days);
             dateTimeConsole.printLeapYear(year, isLeap);
-        } catch (NumberFormatException e) {
+        } catch (TaskException e) {
             System.out.println(e);
         }
     }

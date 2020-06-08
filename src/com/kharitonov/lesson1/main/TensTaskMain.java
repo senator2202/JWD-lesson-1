@@ -2,6 +2,7 @@ package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.FunctionConsole;
 import com.kharitonov.lesson1.entity.TangentFunction;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.FunctionService;
 
 import java.util.HashMap;
@@ -14,13 +15,13 @@ public class TensTaskMain {
         try {
             TangentFunction tg = new TangentFunction();
             FunctionService functionService = new FunctionService();
-            HashMap<Double,Double> result =
+            HashMap<Double, Double> result =
                     (HashMap<Double, Double>) functionService.
-                    getTangentValues(tg, a, b, h);
+                            getTangentValues(tg, a, b, h);
             FunctionConsole functionConsole = new FunctionConsole();
             functionConsole.printFunctionValues(tg.getSignature(),
                     result);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

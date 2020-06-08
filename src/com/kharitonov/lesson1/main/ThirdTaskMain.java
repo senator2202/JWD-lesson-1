@@ -3,6 +3,7 @@ package com.kharitonov.lesson1.main;
 import com.kharitonov.lesson1.console.ShapeConsole;
 import com.kharitonov.lesson1.entity.Circle;
 import com.kharitonov.lesson1.entity.Square;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.ShapeService;
 
 
@@ -22,7 +23,7 @@ public class ThirdTaskMain {
             shapeConsole.printSquareArea(inscribedSquare.area());
             shapeConsole.printSquareScale(shapeService.
                     getSquareScale(describedSquare, inscribedSquare));
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

@@ -46,7 +46,7 @@ public class TaskFunctionTest {
     @Parameters({"x", "expectedResult"})
     @Test(dataProvider = "dataForValue", groups = "value")
     public void testGetValue(double x, double expectedResult) {
-        double actualResult = taskFunction.getValue(x);
+        double actualResult = taskFunction.value(x);
         Assert.assertEquals(actualResult, expectedResult, 0.000001);
     }
 }

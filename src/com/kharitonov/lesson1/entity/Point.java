@@ -12,15 +12,6 @@ public class Point {
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Point{");
-        sb.append("x=").append(x);
-        sb.append(", y=").append(y);
-        sb.append('}');
-        return sb.toString();
-    }
-
     public double getX() {
         return x;
     }
@@ -39,5 +30,14 @@ public class Point {
 
     public double distanceFromOrigin() {
         return Math.hypot(x, y);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Point{");
+        sb.append("x=").append(x);
+        sb.append(", y=").append(y);
+        sb.append('}');
+        return sb.toString();
     }
 }

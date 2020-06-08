@@ -2,6 +2,7 @@ package test.kharitonov.lesson1.service;
 
 import com.kharitonov.lesson1.entity.TangentFunction;
 import com.kharitonov.lesson1.entity.TaskFunction;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.FunctionService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 public class FunctionServiceTest {
     FunctionService functionService;
@@ -26,8 +28,8 @@ public class FunctionServiceTest {
     public Object[][] dataForTaskFunctionValue() {
         TaskFunction taskFunction = new TaskFunction();
         return new Object[][]{
-                {taskFunction, 0.0, -1.0 / 6.0},
-                {taskFunction, 2.0, 1.0 / 2.0},
+                {taskFunction, 0.0, -0.16666666666666},
+                {taskFunction, 2.0, 0.5},
                 {taskFunction, 3.0, 9.0},
                 {taskFunction, 5.0, -1.0}
         };
@@ -37,8 +39,13 @@ public class FunctionServiceTest {
     @Test(dataProvider = "dataForTaskFunctionValue", groups = "functionValue")
     public void testGetTaskFunctionValue(TaskFunction function, double x,
                                          double expectedResult) {
-        double actualResult = functionService.getTaskFunctionValue(function, x);
-        assertEquals(actualResult, expectedResult);
+        try {
+            double actualResult = functionService.getTaskFunctionValue(function,
+                    x);
+            assertEquals(actualResult, expectedResult, 0.0001);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForTaskFunctionValueException")
@@ -56,14 +63,14 @@ public class FunctionServiceTest {
     @Parameters({"function", "x"})
     @Test(dataProvider = "dataForTaskFunctionValueException",
             groups = "functionValue",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetTaskFunctionValueException(TaskFunction function,
                                                   double x) {
         try {
             functionService.getTaskFunctionValue(function, x);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -75,7 +82,7 @@ public class FunctionServiceTest {
                 {taskFunction, 3.0, TaskFunction.SIGNATURE_A},
                 {taskFunction, 2.9, TaskFunction.SIGNATURE_B},
                 {taskFunction, -9.9, TaskFunction.SIGNATURE_B},
-                {taskFunction, 9.9, TaskFunction.SIGNATURE_B}
+                {taskFunction, 9.9, TaskFunction.SIGNATURE_A}
         };
     }
 
@@ -83,11 +90,14 @@ public class FunctionServiceTest {
     @Test(groups = "functionSignature",
             dataProvider = "dataForTaskFunctionSignature")
     public void testGetMyFunctionSignature(TaskFunction taskFunction,
-                                           double x,
-                                           String expectedResult) {
-        String actualResult = functionService.
-                getTaskFunctionSignature(taskFunction, x);
-        assertEquals(actualResult, expectedResult);
+                                           double x, String expectedResult) {
+        try {
+            String actualResult = functionService.
+                    getTaskFunctionSignature(taskFunction, x);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForTaskFunctionSignatureException")
@@ -105,14 +115,14 @@ public class FunctionServiceTest {
     @Parameters({"myFunction", "x"})
     @Test(groups = "functionSignature",
             dataProvider = "dataForTaskFunctionSignatureException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetTaskFunctionSignatureException(TaskFunction taskFunction,
                                                       double x) {
         try {
             functionService.getTaskFunctionSignature(taskFunction, x);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -131,8 +141,12 @@ public class FunctionServiceTest {
     @Test(groups = "tangentValue", dataProvider = "dataForTangentValue")
     public void testGetTangentValue(TangentFunction tangent, double x,
                                     double expectedResult) {
-        double actualValue = functionService.getTangentValue(tangent, x);
-        assertEquals(actualValue, expectedResult);
+        try {
+            double actualValue = functionService.getTangentValue(tangent, x);
+            assertEquals(actualValue, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForTangentValueException")
@@ -149,13 +163,14 @@ public class FunctionServiceTest {
     @Parameters({"tangentFunction", "x"})
     @Test(groups = "tangentValue",
             dataProvider = "dataForTangentValueException",
-            expectedExceptions = NumberFormatException.class)
-    public void testGetTangentValueException(TangentFunction tangent, double x) {
+            expectedExceptions = AssertionError.class)
+    public void testGetTangentValueException(TangentFunction tangent,
+                                             double x) {
         try {
             functionService.getTangentValue(tangent, x);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -188,10 +203,15 @@ public class FunctionServiceTest {
                                      double rangeEnd,
                                      double step,
                                      Map<Double, Double> expectedResult) {
-        HashMap<Double, Double> actualResult =
-                (HashMap<Double, Double>) functionService.
-                        getTangentValues(tangent, rangeStart, rangeEnd, step);
-        assertEquals(actualResult, expectedResult);
+        try {
+            HashMap<Double, Double> actualResult =
+                    (HashMap<Double, Double>) functionService.
+                            getTangentValues(tangent, rangeStart,
+                                    rangeEnd, step);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForTangentValuesException")
@@ -209,7 +229,7 @@ public class FunctionServiceTest {
             "rangeEnd", "step"})
     @Test(groups = "tangentValues",
             dataProvider = "dataForTangentValuesException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetTangentValuesException(TangentFunction tangent,
                                               double rangeStart,
                                               double rangeEnd,
@@ -217,9 +237,9 @@ public class FunctionServiceTest {
         try {
             functionService.getTangentValues(tangent, rangeStart,
                     rangeEnd, step);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 }

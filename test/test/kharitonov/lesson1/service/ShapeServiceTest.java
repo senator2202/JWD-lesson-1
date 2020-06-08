@@ -2,13 +2,15 @@ package test.kharitonov.lesson1.service;
 
 import com.kharitonov.lesson1.entity.Circle;
 import com.kharitonov.lesson1.entity.Square;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.ShapeService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 public class ShapeServiceTest {
     private ShapeService shapeService;
@@ -33,8 +35,12 @@ public class ShapeServiceTest {
     @Test(dataProvider = "dataForGetSquareSide",
             groups = "squareSide")
     public void testGetSquareSide(double area, double expectedSide) {
-        double actualSide = shapeService.getSquareSide(area);
-        assertEquals(actualSide, expectedSide, 0.0001);
+        try {
+            double actualSide = shapeService.getSquareSide(area);
+            assertEquals(actualSide, expectedSide, 0.0001);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetSquareSideException")
@@ -50,13 +56,13 @@ public class ShapeServiceTest {
 
     @Parameters({"area"})
     @Test(dataProvider = "dataForGetSquareSideException", groups = "squareSide",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetSquareSideException(double area) {
         try {
             shapeService.getSquareSide(area);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -76,9 +82,13 @@ public class ShapeServiceTest {
     public void testGetSquareScale(Square firstSquare,
                                    Square secondSquare,
                                    double expectedScale) {
-        double actualScale = shapeService.getSquareScale(firstSquare,
-                secondSquare);
-        assertEquals(actualScale, expectedScale, 0.0001);
+        try {
+            double actualScale = shapeService.getSquareScale(firstSquare,
+                    secondSquare);
+            assertEquals(actualScale, expectedScale, 0.0001);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetSquareScaleException")
@@ -95,15 +105,15 @@ public class ShapeServiceTest {
     @Parameters({"firstSquare", "secondSquare"})
     @Test(dataProvider = "dataForGetSquareScaleException",
             groups = "squareScale",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetSquareScaleException(Square firstSquare,
                                             Square secondSquare) {
         try {
             shapeService.getSquareScale(firstSquare,
                     secondSquare);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -121,8 +131,12 @@ public class ShapeServiceTest {
     @Parameters({"square", "expectedCircle"})
     @Test(dataProvider = "dataForInscribedCircle", groups = "inscribedCircle")
     public void testGetInscribedCircle(Square square, Circle expectedCircle) {
-        Circle actualCircle = shapeService.getInscribedCircle(square);
-        assertEquals(actualCircle, expectedCircle);
+        try {
+            Circle actualCircle = shapeService.getInscribedCircle(square);
+            assertEquals(actualCircle, expectedCircle);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetInscribedCircleException")
@@ -139,13 +153,13 @@ public class ShapeServiceTest {
     @Parameters({"square"})
     @Test(dataProvider = "dataForGetInscribedCircleException",
             groups = "inscribedCircle",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetInscribedCircleException(Square square) {
         try {
             shapeService.getInscribedCircle(square);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -165,8 +179,12 @@ public class ShapeServiceTest {
     @Test(groups = "inscribedSquare",
             dataProvider = "dataForGetInscribedSquare")
     public void testGetInscribedSquare(Circle circle, Square expectedSquare) {
-        Square actualSquare = shapeService.getInscribedSquare(circle);
-        assertEquals(actualSquare, expectedSquare);
+        try {
+            Square actualSquare = shapeService.getInscribedSquare(circle);
+            assertEquals(actualSquare, expectedSquare);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetInscribedSquareException")
@@ -183,13 +201,13 @@ public class ShapeServiceTest {
     @Parameters({"circle"})
     @Test(groups = "inscribedSquare",
             dataProvider = "dataForGetInscribedSquareException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetInscribedSquareException(Circle circle) {
         try {
             shapeService.getInscribedSquare(circle);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -207,8 +225,12 @@ public class ShapeServiceTest {
     @Parameters({"circle", "expectedArea"})
     @Test(dataProvider = "dataForGetCircleArea", groups = "circleArea")
     public void testGetCircleArea(Circle circle, double expectedArea) {
-        double actualArea = shapeService.getCircleArea(circle);
-        assertEquals(actualArea, expectedArea, 0.0001);
+        try {
+            double actualArea = shapeService.getCircleArea(circle);
+            assertEquals(actualArea, expectedArea, 0.0001);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetCircleAreaException")
@@ -225,13 +247,13 @@ public class ShapeServiceTest {
     @Parameters({"circle"})
     @Test(dataProvider = "dataForGetCircleAreaException",
             groups = "circleArea",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetCircleAreaException(Circle circle) {
         try {
             shapeService.getCircleArea(circle);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -250,8 +272,13 @@ public class ShapeServiceTest {
     @Test(dataProvider = "dataForGetCircumference", groups = "circumference")
     public void testGetCircumference(Circle circle,
                                      double expectedCircumference) {
-        double actualCircumference = shapeService.getCircumference(circle);
-        assertEquals(actualCircumference, expectedCircumference, 0.0001);
+        try {
+            double actualCircumference = shapeService.getCircumference(circle);
+            assertEquals(actualCircumference, expectedCircumference,
+                    0.0001);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForGetCircumferenceException")
@@ -268,13 +295,13 @@ public class ShapeServiceTest {
     @Parameters({"circle"})
     @Test(dataProvider = "dataForGetCircumferenceException",
             groups = "circumference",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetCircumferenceException(Circle circle) {
         try {
             shapeService.getCircumference(circle);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 }

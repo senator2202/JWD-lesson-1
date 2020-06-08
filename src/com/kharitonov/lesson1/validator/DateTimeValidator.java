@@ -1,7 +1,7 @@
 package com.kharitonov.lesson1.validator;
 
 public class DateTimeValidator {
-    public static final int MAX_SECONDS = 86400;
+    public static final int MAX_SECONDS_IN_DAY = 86400;
     public static final int MAX_MONTH = 12;
 
     public boolean validateYear(int year) {
@@ -13,6 +13,6 @@ public class DateTimeValidator {
     }
 
     public boolean validateDaySeconds(int totalSeconds) {
-        return (totalSeconds >= 0 && totalSeconds <= MAX_SECONDS);
+        return (totalSeconds >= 0 && totalSeconds <= MAX_SECONDS_IN_DAY);
     }
 }

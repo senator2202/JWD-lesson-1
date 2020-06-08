@@ -8,7 +8,7 @@ public class TaskFunction {
         return (x >= 3) ? SIGNATURE_A : SIGNATURE_B;
     }
 
-    public double getValue(double x) {
+    public double value(double x) {
         if (x >= 3) {
             return 3 * x + 9 - Math.pow(x, 2);
         } else {
@@ -18,7 +18,7 @@ public class TaskFunction {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("MyFunction{");
+        final StringBuilder sb = new StringBuilder("TaskFunction{");
         sb.append('}');
         return sb.toString();
     }

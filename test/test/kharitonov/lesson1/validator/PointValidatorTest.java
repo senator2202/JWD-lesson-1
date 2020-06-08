@@ -6,8 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class PointValidatorTest {
     private final PointValidator pointValidator = new PointValidator();
@@ -77,14 +76,14 @@ public class PointValidatorTest {
 
     @Test(groups = "range")
     public void testGetXRange() {
-        String actual = pointValidator.getXRange();
+        String actual = pointValidator.xRange();
         String expected = "[-10.0;10.0]";
         assertEquals(actual, expected);
     }
 
     @Test(groups = "range")
     public void testGetYRange() {
-        String actual = pointValidator.getYRange();
+        String actual = pointValidator.yRange();
         String expected = "[-10.0;10.0]";
         assertEquals(actual, expected);
     }

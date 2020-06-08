@@ -1,12 +1,15 @@
 package test.kharitonov.lesson1.service;
 
 import com.kharitonov.lesson1.entity.Point;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.PointService;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 public class PointServiceTest {
     PointService pointService;
@@ -31,9 +34,13 @@ public class PointServiceTest {
     public void testDefineClosestPoint(Point firstPoint,
                                        Point secondPoint,
                                        int expectedResult) {
-        int actualResult = pointService.defineClosestPoint(firstPoint,
-                secondPoint);
-        Assert.assertEquals(actualResult, expectedResult);
+        try {
+            int actualResult = pointService.defineClosestPoint(firstPoint,
+                    secondPoint);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForClosestPointException")
@@ -48,15 +55,15 @@ public class PointServiceTest {
 
     @Parameters({"firstPoint", "secondPoint"})
     @Test(dataProvider = "dataForClosestPointException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testDefineClosestPointException(Point firstPoint,
                                                 Point secondPoint) {
         try {
             pointService.defineClosestPoint(firstPoint,
                     secondPoint);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 }

@@ -2,6 +2,7 @@ package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.PointConsole;
 import com.kharitonov.lesson1.entity.Point;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.PointService;
 
 public class SevensTaskMain {
@@ -12,7 +13,7 @@ public class SevensTaskMain {
             PointService pointService = new PointService();
             int result = pointService.defineClosestPoint(point1, point2);
             new PointConsole().printClosestPoint(point1, point2, result);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

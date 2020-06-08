@@ -9,7 +9,7 @@ public class ValueValidator {
     }
 
     public String getRange() {
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append('[').append(RANGE_START).append(';');
         sb.append(RANGE_END).append(']');
         return sb.toString();

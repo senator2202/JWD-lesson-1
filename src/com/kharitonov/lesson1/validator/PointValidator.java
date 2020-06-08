@@ -19,15 +19,15 @@ public class PointValidator {
         return (x >= X_START && x <= X_END);
     }
 
-    public String getXRange() {
-        StringBuilder sb=new StringBuilder();
+    public String xRange() {
+        StringBuilder sb = new StringBuilder();
         sb.append('[').append(X_START).append(';');
         sb.append(X_END).append(']');
         return sb.toString();
     }
 
-    public String getYRange() {
-        StringBuilder sb=new StringBuilder();
+    public String yRange() {
+        StringBuilder sb = new StringBuilder();
         sb.append('[').append(Y_START).append(';');
         sb.append(Y_END).append(']');
         return sb.toString();

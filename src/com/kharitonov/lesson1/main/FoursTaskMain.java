@@ -1,6 +1,7 @@
 package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.NumberConsole;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.NumberService;
 
 public class FoursTaskMain {
@@ -12,7 +13,7 @@ public class FoursTaskMain {
         try {
             boolean flag = new NumberService().checkForTwoEven(a, b, c, d);
             new NumberConsole().printResultForTwoEven(flag, a, b, c, d);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

@@ -2,6 +2,7 @@ package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.ShapeConsole;
 import com.kharitonov.lesson1.entity.Circle;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.ShapeService;
 
 public class NinesTaskMain {
@@ -15,7 +16,7 @@ public class NinesTaskMain {
             ShapeConsole shapeConsole = new ShapeConsole();
             shapeConsole.printCircleArea(radius, area);
             shapeConsole.printCircumference(radius, circumference);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

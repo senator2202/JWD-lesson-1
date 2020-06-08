@@ -13,8 +13,8 @@ public class TangentFunction {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("TangentFunction{");
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("x = ");
+        sb.append(SIGNATURE);
         return sb.toString();
     }
 }

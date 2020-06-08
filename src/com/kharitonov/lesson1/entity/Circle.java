@@ -28,14 +28,6 @@ public class Circle {
     }
 
     @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Circle{");
-        sb.append("radius=").append(radius);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -53,5 +45,13 @@ public class Circle {
     public int hashCode() {
         long temp = Double.doubleToLongBits(radius);
         return (int) (temp ^ (temp >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Circle{");
+        sb.append("radius=").append(radius);
+        sb.append('}');
+        return sb.toString();
     }
 }

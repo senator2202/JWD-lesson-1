@@ -37,16 +37,16 @@ public class Square {
     }
 
     @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(side);
+        return (int) (temp ^ (temp >>> 32));
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Square{");
         sb.append("side=").append(side);
         sb.append('}');
         return sb.toString();
-    }
-
-    @Override
-    public int hashCode() {
-        long temp = Double.doubleToLongBits(side);
-        return (int) (temp ^ (temp >>> 32));
     }
 }

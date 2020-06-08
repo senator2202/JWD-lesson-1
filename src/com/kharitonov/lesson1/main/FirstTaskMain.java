@@ -1,6 +1,7 @@
 package com.kharitonov.lesson1.main;
 
 import com.kharitonov.lesson1.console.NumberConsole;
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.NumberService;
 
 public class FirstTaskMain {
@@ -10,7 +11,7 @@ public class FirstTaskMain {
         try {
             int digit = new NumberService().getLastDigitOfSquare(number);
             new NumberConsole().printLastDigitOfSquare(number, digit);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
         }
     }

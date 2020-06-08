@@ -1,12 +1,14 @@
 package test.kharitonov.lesson1.service;
 
+import com.kharitonov.lesson1.exception.TaskException;
 import com.kharitonov.lesson1.service.NumberService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 public class NumberServiceTest {
     NumberService numberService;
@@ -30,8 +32,12 @@ public class NumberServiceTest {
     @Parameters({"number", "expectedResult"})
     @Test(groups = "lastDigit", dataProvider = "dataForLastDigitOfSquare")
     public void testGetLastDigitOfSquare(int number, int expectedResult) {
-        int actualResult = numberService.getLastDigitOfSquare(number);
-        assertEquals(actualResult, expectedResult);
+        try {
+            int actualResult = numberService.getLastDigitOfSquare(number);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForLastDigitOfSquareException")
@@ -48,13 +54,13 @@ public class NumberServiceTest {
     @Parameters({"number"})
     @Test(groups = "lastDigit",
             dataProvider = "dataForLastDigitOfSquareException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testGetLastDigitOfSquareException(int number) {
         try {
             numberService.getLastDigitOfSquare(number);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -73,8 +79,12 @@ public class NumberServiceTest {
     @Test(groups = "twoEven",
             dataProvider = "dataForCheckForTwoEven")
     public void testCheckForTwoEven(boolean expectedResult, int[] numbers) {
-        boolean actualResult = numberService.checkForTwoEven(numbers);
-        assertEquals(actualResult, expectedResult);
+        try {
+            boolean actualResult = numberService.checkForTwoEven(numbers);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForCheckForTwoEvenException")
@@ -91,13 +101,13 @@ public class NumberServiceTest {
     @Parameters({"numbers"})
     @Test(groups = "twoEven",
             dataProvider = "dataForCheckForTwoEvenException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testCheckForTwoEvenException(int[] numbers) {
         try {
             numberService.checkForTwoEven(numbers);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 
@@ -115,8 +125,12 @@ public class NumberServiceTest {
     @Parameters({"number", "expectedResult"})
     @Test(groups = "perfect", dataProvider = "dataForTestIsPerfect")
     public void testIsPerfect(int number, boolean expectedResult) {
-        boolean actualResult = numberService.isPerfect(number);
-        assertEquals(actualResult, expectedResult);
+        try {
+            boolean actualResult = numberService.isPerfect(number);
+            assertEquals(actualResult, expectedResult);
+        } catch (TaskException e) {
+            System.out.println(e);
+        }
     }
 
     @DataProvider(name = "dataForTestIsPerfectException")
@@ -133,13 +147,13 @@ public class NumberServiceTest {
     @Parameters({"number"})
     @Test(groups = "perfect",
             dataProvider = "dataForTestIsPerfectException",
-            expectedExceptions = NumberFormatException.class)
+            expectedExceptions = AssertionError.class)
     public void testIsPerfectException(int number) {
         try {
             numberService.isPerfect(number);
-        } catch (NumberFormatException ex) {
+        } catch (TaskException ex) {
             System.out.println(ex);
-            throw ex;
+            fail();
         }
     }
 }

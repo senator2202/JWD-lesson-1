@@ -5,8 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class ValueValidatorTest {
     private final ValueValidator valueValidator = new ValueValidator();
@@ -21,18 +20,6 @@ public class ValueValidatorTest {
         this.expected = expected;
     }
 
-    @Test(groups = "inRange")
-    public void testValidateInRangeTrue() {
-        boolean actual = valueValidator.validateInRange(2);
-        assertEquals(actual, true);
-    }
-
-    @Test(groups = "inRange")
-    public void testValidateInRangeFalse() {
-        boolean actual = valueValidator.validateInRange(222);
-        assertEquals(actual, false);
-    }
-
     @DataProvider(name = "dataForValidateInRange")
     @Test(groups = "inRange")
     public static Object[][] dataForValidateInRange() {
@@ -45,6 +32,17 @@ public class ValueValidatorTest {
         };
     }
 
+    @Test(groups = "inRange")
+    public void testValidateInRangeTrue() {
+        boolean actual = valueValidator.validateInRange(2);
+        assertEquals(actual, true);
+    }
+
+    @Test(groups = "inRange")
+    public void testValidateInRangeFalse() {
+        boolean actual = valueValidator.validateInRange(222);
+        assertEquals(actual, false);
+    }
 
     @Test(groups = "inRange")
     public void testValidateInRange() {
