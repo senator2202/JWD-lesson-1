@@ -1,4 +1,4 @@
-package com.kharitonov.lesson1.test.entity;
+package test.kharitonov.lesson1.entity;
 
 import com.kharitonov.lesson1.entity.TangentFunction;
 import org.testng.Assert;

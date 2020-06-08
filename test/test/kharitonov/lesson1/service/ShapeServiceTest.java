@@ -1,4 +1,4 @@
-package com.kharitonov.lesson1.test.service;
+package test.kharitonov.lesson1.service;
 
 import com.kharitonov.lesson1.entity.Circle;
 import com.kharitonov.lesson1.entity.Square;

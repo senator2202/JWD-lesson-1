@@ -1,4 +1,4 @@
-package com.kharitonov.lesson1.test.validator;
+package test.kharitonov.lesson1.validator;
 
 import com.kharitonov.lesson1.validator.DateTimeValidator;
 import org.testng.annotations.DataProvider;
