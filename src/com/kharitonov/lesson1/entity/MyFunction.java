@@ -1,7 +1,7 @@
 package com.kharitonov.lesson1.entity;
 
 public class MyFunction {
-    public static final String SIGNATURE_A = "-x^3+3*x+9";
+    public static final String SIGNATURE_A = "-x^2+3*x+9";
     public static final String SIGNATURE_B = "1/(x^3-6)";
 
     public String getSignature(double x) {
