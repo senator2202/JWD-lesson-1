@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class PointValidatorTest {
     private final PointValidator pointValidator = new PointValidator();
@@ -14,14 +14,14 @@ public class PointValidatorTest {
     @Test(groups = "point")
     public void testValidatePointTrue() {
         boolean actual = pointValidator.validatePoint(new Point(3, 4));
-        assertEquals(actual, true);
+        assertTrue(actual);
     }
 
 
     @Test(groups = "point")
     public void testValidatePointFalse() {
         boolean actual = pointValidator.validatePoint(new Point(13, 4));
-        assertEquals(actual, false);
+        assertFalse(actual);
     }
 
     @DataProvider(name = "dataForValidatePoint")
@@ -46,13 +46,13 @@ public class PointValidatorTest {
     @Test(groups = "x")
     public void testValidateXTrue() {
         boolean actual = pointValidator.validateX(5);
-        assertEquals(actual, true);
+        assertTrue(actual);
     }
 
     @Test(groups = "x")
     public void testValidateXFalse() {
         boolean actual = pointValidator.validateX(-55);
-        assertEquals(actual, false);
+        assertFalse(actual);
     }
 
     @DataProvider(name = "dataForValidateX")

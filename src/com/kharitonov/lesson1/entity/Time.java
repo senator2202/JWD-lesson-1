@@ -22,4 +22,32 @@ public class Time {
     public int getSeconds() {
         return seconds;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Time time = (Time) o;
+
+        if (hours != time.hours) {
+            return false;
+        }
+        if (minutes != time.minutes){
+            return false;
+        }
+        return seconds == time.seconds;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = hours;
+        result = 31 * result + minutes;
+        result = 31 * result + seconds;
+        return result;
+    }
 }
