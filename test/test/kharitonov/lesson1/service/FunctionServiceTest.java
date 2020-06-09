@@ -44,7 +44,7 @@ public class FunctionServiceTest {
                     x);
             assertEquals(actualResult, expectedResult, 0.0001);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -63,15 +63,11 @@ public class FunctionServiceTest {
     @Parameters({"function", "x"})
     @Test(dataProvider = "dataForTaskFunctionValueException",
             groups = "functionValue",
-            expectedExceptions = AssertionError.class)
+            expectedExceptions = TaskException.class)
     public void testGetTaskFunctionValueException(TaskFunction function,
-                                                  double x) {
-        try {
-            functionService.getTaskFunctionValue(function, x);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+                                                  double x)
+            throws TaskException {
+        functionService.getTaskFunctionValue(function, x);
     }
 
     @DataProvider(name = "dataForTaskFunctionSignature")
@@ -96,7 +92,7 @@ public class FunctionServiceTest {
                     getTaskFunctionSignature(taskFunction, x);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -115,15 +111,11 @@ public class FunctionServiceTest {
     @Parameters({"myFunction", "x"})
     @Test(groups = "functionSignature",
             dataProvider = "dataForTaskFunctionSignatureException",
-            expectedExceptions = AssertionError.class)
+            expectedExceptions = TaskException.class)
     public void testGetTaskFunctionSignatureException(TaskFunction taskFunction,
-                                                      double x) {
-        try {
-            functionService.getTaskFunctionSignature(taskFunction, x);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+                                                      double x)
+            throws TaskException {
+        functionService.getTaskFunctionSignature(taskFunction, x);
     }
 
     @DataProvider(name = "dataForTangentValue")
@@ -145,7 +137,7 @@ public class FunctionServiceTest {
             double actualValue = functionService.getTangentValue(tangent, x);
             assertEquals(actualValue, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -163,15 +155,10 @@ public class FunctionServiceTest {
     @Parameters({"tangentFunction", "x"})
     @Test(groups = "tangentValue",
             dataProvider = "dataForTangentValueException",
-            expectedExceptions = AssertionError.class)
+            expectedExceptions = TaskException.class)
     public void testGetTangentValueException(TangentFunction tangent,
-                                             double x) {
-        try {
-            functionService.getTangentValue(tangent, x);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+                                             double x) throws TaskException {
+        functionService.getTangentValue(tangent, x);
     }
 
     @DataProvider(name = "dataForTangentValues")
@@ -210,7 +197,7 @@ public class FunctionServiceTest {
                                     rangeEnd, step);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -229,17 +216,13 @@ public class FunctionServiceTest {
             "rangeEnd", "step"})
     @Test(groups = "tangentValues",
             dataProvider = "dataForTangentValuesException",
-            expectedExceptions = AssertionError.class)
+            expectedExceptions = TaskException.class)
     public void testGetTangentValuesException(TangentFunction tangent,
                                               double rangeStart,
                                               double rangeEnd,
-                                              double step) {
-        try {
-            functionService.getTangentValues(tangent, rangeStart,
-                    rangeEnd, step);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+                                              double step)
+            throws TaskException {
+        functionService.getTangentValues(tangent, rangeStart,
+                rangeEnd, step);
     }
 }

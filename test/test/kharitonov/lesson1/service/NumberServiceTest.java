@@ -36,7 +36,7 @@ public class NumberServiceTest {
             int actualResult = numberService.getLastDigitOfSquare(number);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -54,14 +54,10 @@ public class NumberServiceTest {
     @Parameters({"number"})
     @Test(groups = "lastDigit",
             dataProvider = "dataForLastDigitOfSquareException",
-            expectedExceptions = AssertionError.class)
-    public void testGetLastDigitOfSquareException(int number) {
-        try {
-            numberService.getLastDigitOfSquare(number);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testGetLastDigitOfSquareException(int number)
+            throws TaskException {
+        numberService.getLastDigitOfSquare(number);
     }
 
     @DataProvider(name = "dataForCheckForTwoEven")
@@ -83,7 +79,7 @@ public class NumberServiceTest {
             boolean actualResult = numberService.checkForTwoEven(numbers);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -101,14 +97,10 @@ public class NumberServiceTest {
     @Parameters({"numbers"})
     @Test(groups = "twoEven",
             dataProvider = "dataForCheckForTwoEvenException",
-            expectedExceptions = AssertionError.class)
-    public void testCheckForTwoEvenException(int[] numbers) {
-        try {
-            numberService.checkForTwoEven(numbers);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testCheckForTwoEvenException(int[] numbers)
+            throws TaskException {
+        numberService.checkForTwoEven(numbers);
     }
 
     @DataProvider(name = "dataForTestIsPerfect")
@@ -129,7 +121,7 @@ public class NumberServiceTest {
             boolean actualResult = numberService.isPerfect(number);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -147,13 +139,8 @@ public class NumberServiceTest {
     @Parameters({"number"})
     @Test(groups = "perfect",
             dataProvider = "dataForTestIsPerfectException",
-            expectedExceptions = AssertionError.class)
-    public void testIsPerfectException(int number) {
-        try {
-            numberService.isPerfect(number);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testIsPerfectException(int number) throws TaskException {
+        numberService.isPerfect(number);
     }
 }

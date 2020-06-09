@@ -11,8 +11,6 @@ d
 4src/com/kharitonov/lesson1/console/PointConsole.java,2\f\2f64ffec702c97df13baf0a5ceaa6303f50e2726
 d
 4src/com/kharitonov/lesson1/console/ShapeConsole.java,4\2\42bb19b62120f464daace6f28fda5f6362af00e3
-a
-1src/com/kharitonov/lesson1/entity/MyFunction.java,7\6\760c413b7d87123064a57485c78c0fd0c560b2cc
 f
 6src/com/kharitonov/lesson1/entity/TangentFunction.java,f\f\ff795e08fb325b2ba8768f254d4633f8a4c71dc5
 c
@@ -53,3 +51,25 @@ h
 EpamJWD.iml,d\e\de6381d089d66a979dd6d04fabddeeb5f207ee23
 e
 5src/com/kharitonov/lesson1/service/NumberService.java,d\6\d640bdd6776e5c5ed4f5b27900b0afa416315b6b
+m
+=test/test/kharitonov/lesson1/service/DateTimeServiceTest.java,9\1\9165b5c5b225a0a9d14add0a561686acc993bc0c
+q
+Atest/test/kharitonov/lesson1/validator/DateTimeValidatorTest.java,e\3\e35cd5806b83644285cba27ef1d5cff42f7fcc28
+j
+:test/test/kharitonov/lesson1/service/ShapeServiceTest.java,c\a\ca5c769574bceeaf9c3b2a4c014c0f7194b51661
+k
+;test/test/kharitonov/lesson1/service/NumberServiceTest.java,1\4\1412710dd46b5f68d7b06eccd3dd15ccad013fc7
+j
+:test/test/kharitonov/lesson1/service/PointServiceTest.java,4\3\43ec41b7798e3ab5e368e7bb2c63dc22afe0c6d8
+m
+=test/test/kharitonov/lesson1/service/FunctionServiceTest.java,8\5\850918b0b212b5e1e60e95db8d56d9ad355b120c
+\
+,src/com/kharitonov/lesson1/entity/Point.java,7\b\7b2ee07f2a31d397945fe73d8d7dc3c15f43f72f
+[
++src/com/kharitonov/lesson1/entity/Time.java,5\b\5be14e6eb50d686280617c641a573917c2e14d53
+n
+>test/test/kharitonov/lesson1/validator/PointValidatorTest.java,2\b\2b219f5b1ab94c48ff351aa3b08c2fb216827a19
+n
+>test/test/kharitonov/lesson1/validator/ValueValidatorTest.java,e\3\e36ab5678387ad0d83883d5bd1e7d4a43c486f55
+g
+7src/com/kharitonov/lesson1/exception/TaskException.java,5\b\5b3f47c403a873cbcb4896f9c8eff4583abe88a5

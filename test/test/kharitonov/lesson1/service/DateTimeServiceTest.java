@@ -37,7 +37,7 @@ public class DateTimeServiceTest {
             int actualResult = dateTimeService.getDays(month, year);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException ex) {
-            System.out.println(ex);
+            fail(ex.getMessage());
         }
     }
 
@@ -54,14 +54,9 @@ public class DateTimeServiceTest {
 
     @Parameters({"month", "year"})
     @Test(groups = "days", dataProvider = "dataForDaysException",
-            expectedExceptions = AssertionError.class)
-    public void testGetDaysException(int month, int year) {
-        try {
-            dateTimeService.getDays(month, year);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testGetDaysException(int month, int year) throws TaskException {
+        dateTimeService.getDays(month, year);
     }
 
     @DataProvider(name = "dataForLeapYear")
@@ -82,7 +77,7 @@ public class DateTimeServiceTest {
             boolean actualResult = dateTimeService.isLeapYear(year);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException ex) {
-            System.out.println(ex);
+            fail(ex.getMessage());
         }
     }
 
@@ -98,14 +93,9 @@ public class DateTimeServiceTest {
 
     @Parameters({"year"})
     @Test(groups = "year", dataProvider = "dataForLeapYearException",
-            expectedExceptions = AssertionError.class)
-    public void testIsLeapYearException(int year) {
-        try {
-            dateTimeService.isLeapYear(year);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testIsLeapYearException(int year) throws TaskException {
+        dateTimeService.isLeapYear(year);
     }
 
     @DataProvider(name = "dataForSplitSeconds")
@@ -127,7 +117,7 @@ public class DateTimeServiceTest {
             Time actualResult = dateTimeService.splitSeconds(totalSeconds);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -143,13 +133,9 @@ public class DateTimeServiceTest {
 
     @Parameters({"totalSeconds"})
     @Test(groups = "seconds", dataProvider = "dataForSplitSecondsException",
-            expectedExceptions = AssertionError.class)
-    public void testSplitSecondsException(int totalSeconds) {
-        try {
-            dateTimeService.splitSeconds(totalSeconds);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+            expectedExceptions = TaskException.class)
+    public void testSplitSecondsException(int totalSeconds)
+            throws TaskException {
+        dateTimeService.splitSeconds(totalSeconds);
     }
 }

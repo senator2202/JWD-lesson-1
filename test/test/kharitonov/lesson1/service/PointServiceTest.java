@@ -39,7 +39,7 @@ public class PointServiceTest {
                     secondPoint);
             assertEquals(actualResult, expectedResult);
         } catch (TaskException e) {
-            System.out.println(e);
+            fail(e.getMessage());
         }
     }
 
@@ -55,15 +55,11 @@ public class PointServiceTest {
 
     @Parameters({"firstPoint", "secondPoint"})
     @Test(dataProvider = "dataForClosestPointException",
-            expectedExceptions = AssertionError.class)
+            expectedExceptions = TaskException.class)
     public void testDefineClosestPointException(Point firstPoint,
-                                                Point secondPoint) {
-        try {
-            pointService.defineClosestPoint(firstPoint,
-                    secondPoint);
-        } catch (TaskException ex) {
-            System.out.println(ex);
-            fail();
-        }
+                                                Point secondPoint)
+            throws TaskException {
+        pointService.defineClosestPoint(firstPoint,
+                secondPoint);
     }
 }
